@@ -1,0 +1,594 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+$font-family-sans-serif: "Poppins", sans-serif; // <-- Ganti font utama
+$headings-font-family: "Poppins", sans-serif; // <-- Ganti font untuk heading
+$headings-font-weight: 700; // Buat semua heading menjadi bold
+// Import Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+
+.body{
+    font-family: 'Poppins', sans-serif; // Ganti dengan font yang diinginkan
+    background-color: #f8f9fa; // Warna latar belakang abu-abu terang Bootstrap
+}
+
+// Custom styles for Hero Slider
+.hero-slider {
+    .hero-slide {
+        height: 90vh; // Tinggi slider
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        color: white;
+        display: flex !important; // Penting untuk Slick
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); // Overlay gelap
+    }
+
+    .hero-content {
+        position: relative; // Agar di atas overlay
+        z-index: 2;
+    }
+
+    // Customisasi panah dan titik navigasi Slick
+    .slick-prev, .slick-next {
+        z-index: 3;
+        width: 50px;
+        height: 50px;
+    }
+    .slick-prev { left: 25px; }
+    .slick-next { right: 25px; }
+}
+
+#main-navbar {
+    transition: background-color 0.3s ease-in-out;
+
+    // Default state (transparan)
+    .logo-suffix {
+        color: #ffffff; // Tulisan INDO berwarna putih
+    }
+}
+
+#main-navbar.scrolled {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+    // Ubah warna link navigasi menjadi gelap
+    &.navbar-dark {
+        --bs-navbar-color: rgba(0, 0, 0, 0.65);
+        --bs-navbar-hover-color: rgba(0, 0, 0, 0.8);
+        --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.65%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    // Ubah warna tulisan INDO menjadi gelap, tapi KOPER tetap oranye
+    .logo-suffix {
+        color: #212529; // Warna hitam/abu-abu gelap khas Bootstrap
+    }
+}
+
+.about-teaser-section {
+
+    background-image: url('../../public/storage/coba1.jpg'); // Ganti dengan path gambar yang sesuai
+    background-repeat: repeat;
+    background-size: auto;
+
+    .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+
+        &:hover {
+            color: #ffffff;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+    }
+}
+
+.products-section {
+    background-image: url('../../public/storage/coba.jpg'); // Ganti dengan path gambar yang sesuai
+    background-repeat: repeat;
+    background-size: auto;
+}
+// Styling untuk Tab Kategori
+.category-tab-sig {
+    background: none;
+    border: none;
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #6c757d; // Warna teks abu-abu
+    position: relative;
+    transition: color 0.3s ease;
+
+    // Garis bawah default (abu-abu tipis)
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #dee2e6;
+        transition: transform 0.3s ease;
+        transform: scaleX(0); // Sembunyikan by default
+    }
+
+    // Efek saat hover
+    &:hover {
+        color: #212529; // Warna teks jadi hitam
+    }
+
+    // Style untuk tab yang sedang aktif
+    &.is-active {
+        color: #212529; // Warna teks hitam
+
+        // Tampilkan garis bawah yang tebal dan berwarna
+        &::after {
+            transform: scaleX(1); // Tampilkan garisnya
+            height: 3px;
+            background-color: #FF6600; // Warna oranye brand kita
+        }
+    }
+}
+
+// Styling untuk Kartu Produk (jika perlu disesuaikan juga)
+.product-card-sig {
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease-in-out;
+    display: flex; // <-- Tambahkan ini
+    flex-direction: column; // <-- Tambahkan ini
+
+    .product-card-sig__image-container {
+        overflow: hidden;
+        position: relative; // <-- Tambahkan ini
+        width: 100%;
+        // --- INI KUNCINYA: Rasio Aspek 4:5 (tinggi) ---
+        padding-top: 125%; // (5 / 4 * 100%)
+        // Untuk rasio 1:1 (persegi), gunakan padding-top: 100%;
+        // Untuk rasio 16:9 (lebar), gunakan padding-top: 56.25%;
+    }
+
+    img {
+            position: absolute; // <-- Tambahkan ini
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; // <-- Ini yang membuat gambar memenuhi bingkai tanpa distorsi
+            transition: transform 0.3s cubic-bezier(0.7, 0, 0.37, -0.35);
+    }
+
+    .product-card-sig__content {
+        padding: 1.25rem;
+        flex-grow: 1; // <-- Tambahkan ini
+        display: flex; // <-- Tambahkan ini
+        flex-direction: column; // <-- Tambahkan ini
+        justify-content: center; // <-- Tambahkan ini (opsional, agar teks di tengah)
+    }
+
+    .display-5.fw-bold {
+        font-size: 1.5rem; // Ukuran teks yang lebih kecil
+        font-weight: 600; // Semi-bold
+        color: #f7f7f7; // Warna teks hitam
+    }
+
+    // Efek saat hover pada seluruh kartu
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.075);
+        border-color: transparent;
+
+        img {
+            transform: scale(1.05); // Efek zoom-in pada gambar
+        }
+    }
+}
+
+// News Card
+.news-card-sig {
+    background-color: #ffffff;
+    border-left: 3px solid transparent; // Border kiri transparan by default
+    transition: all 0.3s ease;
+    height: 100%;
+
+    &:hover {
+        border-left-color: #FF6600; // Border kiri jadi oranye saat hover
+        transform: translateX(5px);
+        box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.05);
+    }
+}
+
+// Innovation Card
+.innovation-card-sig {
+    // Styling khusus jika diperlukan, misal:
+    .innovation-card-sig__image {
+        // Mungkin efek filter atau lainnya
+    }
+}
+
+
+.page-hero {
+    position: relative;
+    padding: 8rem 0; // Beri padding atas-bawah yang besar
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+
+    // Overlay gelapnya kita definisikan juga di sini
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    // Pastikan konten teks berada di atas overlay
+    .container {
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.milestone-slider {
+    // Styling untuk titik navigasi (dots)
+    .slick-dots {
+        bottom: -40px; // Beri jarak dari slider
+        li button:before {
+            font-size: 12px;
+            color: #adb5bd; // Warna abu-abu
+        }
+        li.slick-active button:before {
+            color: #FF6600; // Warna oranye brand kita
+        }
+    }
+
+    // Styling untuk setiap kartu milestone
+    .milestone-card {
+        position: relative;
+        padding: 0 1rem; // Beri sedikit padding horizontal
+
+        // Garis pemisah di sebelah kanan (kecuali untuk item terakhir)
+        &:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 70%; // Tinggi garis
+            background-color: #dee2e6; // Warna garis abu-abu
+        }
+
+        &__year {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #FF6600; // Warna oranye brand kita
+            margin-bottom: 0.5rem;
+        }
+
+        &__title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #212529; // Warna hitam
+            margin-bottom: 0.75rem;
+        }
+
+        &__description {
+            font-size: 0.9rem;
+            color: #6c757d; // Warna abu-abu
+            line-height: 1.6;
+        }
+    }
+}
+
+// Hapus garis pemisah pada item terakhir di resolusi tablet & desktop
+@media (min-width: 768px) {
+    .milestone-slider .slick-slide:last-child .milestone-card::after {
+        display: none;
+    }
+}
+
+.team-card {
+    &__image-container {
+        width: 180px;  // Ukuran gambar
+        height: 180px;
+        border-radius: 12px; // <-- Membuat sudutnya melengkung, tidak lingkaran penuh
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; // Memastikan gambar memenuhi area tanpa distorsi
+        }
+    }
+
+    &:hover .team-card__image-container {
+        transform: translateY(-5px) scale(1.03); // Efek hover
+    }
+
+    &__name {
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: #212529;
+        margin-bottom: 0.25rem;
+    }
+
+    &__position {
+        color: #6c757d;
+        font-size: 0.9rem;
+    }
+}
+
+.timeline {
+    position: relative;
+    // Garis vertikal utama
+    &::before {
+        content: '';
+        position: absolute;
+        left: 50px; // Posisi garis
+        top: 0;
+        width: 4px;
+        height: 100%;
+        background-color: #dee2e6;
+    }
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+    padding-left: 100px; // Jarak konten dari garis
+
+    // Lingkaran di garis timeline
+    &::before {
+        content: '';
+        position: absolute;
+        left: 50px;
+        top: 5px;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: white;
+        border: 4px solid #FF6600; // Warna oranye brand kita
+    }
+
+    &__year {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+}
+
+// style untuk button bold
+
+.btn, .navbar-nav .nav-link, .dropdown-item {
+    font-weight: 600 !important; // 600 itu semi-bold
+}
+
+// .btn-warning {
+//     border: 2px solid #FF6600 !important;
+// }
+
+.bg-dark {
+    background-color: #37393b !important; // Warna abu-abu gelap Bootstrap
+}
+
+.partner-section {
+    background-color: #f8f9fa; // Background abu-abu terang
+
+}
+
+.partner-slider {
+    .partner-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+        padding: 0 25px;
+    }
+    .partner-logo {
+        max-height: 50px; // Batasi tinggi logo
+        max-width: 150px; // Batasi lebar logo
+        filter: grayscale(100%); // Buat logo jadi abu-abu
+        opacity: 0.6;
+        transition: all 0.3s ease;
+
+        &:hover {
+            filter: grayscale(0%); // Kembali ke warna asli saat hover
+            opacity: 1;
+            transform: scale(1.1);
+        }
+    }
+}
+
+.product-category-card {
+    border: none;
+    overflow: hidden;
+    height: 350px;
+    .card-img {
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+    }
+    .card-img-overlay {
+        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 50%);
+    }
+    &:hover .card-img {
+        transform: scale(1.1);
+    }
+}
+
+.product-description {
+    // Target semua gambar di dalam deskripsi
+    figure, // Target pembungkus gambar dari editor
+    figure img {
+        max-width: 200px;
+        height: auto;
+        border-radius: 50%;
+        display: block;
+        margin: 1rem 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+}
+
+ .attachment__caption, // Sembunyikan caption (nama file)
+    a[href*="/storage/product-descriptions"] { // Sembunyikan link yang mengarah ke gambar
+        display: none !important;
+    }
+
+    // Pastikan gambar di dalam link tetap terlihat
+    a[href*="/storage/product-descriptions"] img {
+        display: block !important;
+    }
+    // ----------------------------
+
+    // ...
+// ===================================
+// Custom TikTok Card Styles
+// ===================================
+.tiktok-card {
+    transition: all 0.3s ease;
+    .tiktok-card__image-link {
+        position: relative;
+        display: block;
+        overflow: hidden;
+
+        &::after { // Overlay gelap saat hover
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tiktok-card__play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            color: white;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+    }
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+
+        .tiktok-card__image-link::after,
+        .tiktok-card__image-link .tiktok-card__play-icon {
+            opacity: 1;
+        }
+        .tiktok-card__image-link .tiktok-card__play-icon {
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0; // Menghilangkan jarak aneh
+    }
+}
+
+.accordion-item {
+    // Menghilangkan shadow aneh saat accordion aktif
+    .accordion-button:not(.collapsed) {
+        box-shadow: none;
+    }
+}
+
+.accordion-button {
+    // Saat tidak aktif (tertutup)
+    &:not(.collapsed) {
+        // Saat aktif (terbuka)
+        background-color: #FF6600; // Background oranye brand kita
+        color: #ffffff; // Teks menjadi putih
+
+        // Mengubah warna ikon panah (chevron) menjadi putih
+        &::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        }
+    }
+
+    // Menghilangkan garis biru saat di-klik
+    &:focus {
+        box-shadow: none;
+        border-color: rgba(0,0,0,.125);
+    }
+}
+
+// Styling untuk tombol email di dalam accordion
+.accordion-body .btn-warning {
+    // Kita bisa pastikan warnanya konsisten
+    background-color: #FF6600;
+    border-color: #FF6600;
+    color: #ffffff;
+    font-weight: 600;
+
+    &:hover {
+        // Sedikit lebih gelap saat hover
+        background-color: #e65c00;
+        border-color: #e65c00;
+        transition: transform 0.4s ease;
+    }
+}
+
+.navbar .nav-item .nav-link {
+    position: relative; // Penting agar ::after bisa diposisikan relatif terhadap link
+    padding-bottom: 0.5rem; // Beri sedikit ruang di bawah untuk garis
+
+    // Definisikan elemen semu ::after (garisnya)
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px; // Ketebalan garis
+        background-color: #FF6600; // Warna oranye brand kita
+
+        // Sembunyikan garisnya by default dengan mengecilkan skalanya ke 0
+        transform: scaleX(0);
+        transform-origin: center; // Titik pusat animasi dari tengah
+        transition: transform 0.3s ease-in-out; // Animasi yang mulus
+    }
+
+    // Saat link di-hover atau link tersebut adalah dropdown yang sedang terbuka
+    &:hover::after,
+    &.show::after { // .show adalah class yang ditambahkan Bootstrap saat dropdown aktif
+        transform: scaleX(1); // Tampilkan garisnya dengan skala penuh
+    }
+
+    // Khusus untuk dropdown-toggle, agar panahnya tidak ikut bergeser
+    &.dropdown-toggle::after {
+        // Kita bisa atur lebarnya agar tidak melewati ikon panah
+        width: calc(100% - 20px);
+    }
+}
