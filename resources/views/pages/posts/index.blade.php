@@ -29,7 +29,7 @@
         </div>
 
         {{-- Navigasi Pagination --}}
-        <div class="d-flex justify-content-center mt-4">
+        <div class="d-flex justify-content-center mt-5 pt-4">
             {{ $posts->links() }}
         </div>
     </div>

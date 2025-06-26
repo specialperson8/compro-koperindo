@@ -10,33 +10,35 @@
 
     {{-- Grid Logo/Nama Produk --}}
     <section class="py-5 bg-light" style="background-image: url('{{ asset('storage/coba1.jpg') }}');"><div class="container">
-        <div class="row g-4 justify-content-center">
+        <div class="product-zigzag-list">
             @foreach ($products as $product)
-                <div class="col-md-4 col-lg-3 text-center mb-4">
-                    {{-- Bungkus seluruh kartu dengan tag <a> yang mengarah ke rute detail --}}
-                    <a href="{{ route('products.show', $product) }}" class="text-decoration-none">
-                        <div class="product-card-sig h-100">
-                            <div class="product-card-sig__image-container mb-3">
-                                @if($product->main_image)
-                                    <img src="{{ asset('storage/' . $product->main_image) }}" class="img-fluid" alt="{{ $product->name }}">
-                                @else
-                                    <div class="d-flex justify-content-center align-items-center bg-light" style="height: 200px; width: 100%;">
-                                        <span class="text-muted">No Image</span>
-                                    </div>
-                                @endif
-                            </div>
-                            <div class="product-card-sig__content">
-                                <h5 class="fw-bold text-dark mb-1">{{ $product->name }}</h5>
-                            </div>
+                {{-- Setiap produk adalah satu 'row' --}}
+                <div class="row align-items-center product-zigzag-item">
+
+                    {{-- KOLOM GAMBAR (Selalu didefinisikan pertama di HTML) --}}
+                    {{-- Untuk item genap, kita beri class order-md-2 agar pindah ke kanan di desktop --}}
+                    <div class="col-md-6 product-image-wrapper @if($loop->even) order-md-2 @endif">
+                        @if($product->main_image)
+                            <img src="{{ asset('storage/' . $product->main_image) }}" class="img-fluid rounded-4 shadow" alt="{{ $product->name }}">
+                        @endif
+                    </div>
+
+                    {{-- KOLOM TEKS (Selalu didefinisikan kedua di HTML) --}}
+                    {{-- Untuk item genap, kita beri class order-md-1 agar pindah ke kiri di desktop --}}
+                    <div class="col-md-6 @if($loop->even) order-md-1 @endif">
+                        <h3 class="fw-bold h2">{{ $product->name }}</h3>
+                        <div class="text-muted product-description">
+                            {!! $product->description !!}
                         </div>
-                    </a>
+                    </div>
+
                 </div>
             @endforeach
         </div>
     </div></section>
 
         {{-- Navigasi Kategori Lain --}}
-    <section class="py-5 bg-light">
+    <!-- <section class="py-5 bg-light">
         <div class="container">
             <h3 class="text-center fw-bold mb-4">Jelajahi Solusi Lainnya</h3>
             <div class="row g-4 justify-content-center">
@@ -53,5 +55,5 @@
                 @endforeach
             </div>
         </div>
-    </section>
+    </section> -->
 </x-app-layout>

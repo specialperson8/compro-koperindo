@@ -46,7 +46,7 @@ class PageResource extends Resource
                 ->label('Tipe Tampilan Halaman')
                 ->options([
                     'default' => 'Default (Teks Saja)',
-                    'about' => 'Tentang Kami (Dengan Milestone & Tim)',
+                    // 'about' => 'Tentang Kami (Dengan Milestone & Tim)',
                     'visi-misi' => 'Visi & Misi (Layout 2 Kolom)',
                     'bisnis' => 'Lingkup Bisnis (Dengan Ikon)',
                 ])

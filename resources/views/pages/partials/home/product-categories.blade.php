@@ -5,7 +5,7 @@
         </div>
         <div class="row g-4">
             @foreach ($productCategories as $category)
-                <div class="col-md-6 col-lg-3">
+                <div class="col-12 col-md-6 col-lg-3 mb-4">
                     <a href="{{ route('product.category.show', $category->slug) }}" class="card product-category-card text-white text-decoration-none">
                         <img src="{{ asset('storage/' . $category->icon_path) }}" class="card-img" alt="{{ $category->name }}">
                         <div class="card-img-overlay d-flex align-items-end p-4">

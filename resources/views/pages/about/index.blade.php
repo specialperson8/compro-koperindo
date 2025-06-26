@@ -11,22 +11,30 @@
     <section class="py-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
+                <div class="col-lg-8 mx-auto text-justify-start">
                     <h2 class="fw-bold">Tentang Koperindo</h2>
-                    {{-- Ganti dengan teks dinamis dari Site Settings jika sudah siap --}}
-                    <p class="lead text-muted">SIG merupakan perusahaan penyedia solusi bahan bangunan terdepan di Indonesia. Dengan lebih dari 50 variasi produk, jasa, dan solusi pendukung, SIG menghadirkan fleksibilitas pembangunan sesuai dengan kebutuhan pelanggan, di mana pun berada.</p>
+                    <p class="lead text-muted">
+                        {!! $page->content !!}
+                    </p>
                 </div>
             </div>
+            @if($partners->isNotEmpty())
+    <section class="partner-section py-5">
+        <div class="container">
+            @include('pages.partials.home.partner-slider', ['partners' => $partners])
+        </div>
+    </section>
+    @endif
         </div>
     </section>
 
-    {{-- Section Milestone Slider --}}
+     {{-- Section Milestone Slider --}}
+    <!-- @if($milestones->isNotEmpty())
     <section class="py-5 bg-light">
         <div class="container">
             <h2 class="fw-bold text-center mb-5">Perjalanan Kami</h2>
             <div class="milestone-slider">
                 @foreach ($milestones as $milestone)
-                    {{-- Setiap slide dibungkus dengan div ini --}}
                     <div class="px-3">
                         <div class="milestone-card text-center">
                             <h3 class="milestone-card__year">{{ $milestone->year }}</h3>
@@ -38,6 +46,7 @@
             </div>
         </div>
     </section>
+    @endif -->
 
 
     @push('scripts')

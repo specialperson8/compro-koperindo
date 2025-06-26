@@ -25,4 +25,17 @@ $(document).ready(function() {
 
     // Jalankan fungsi setiap kali ada event scroll
     $(window).on('scroll', checkNavbar);
+
+     $('.on-progress-link').on('click', function(e) {
+        e.preventDefault(); // Mencegah link melakukan aksi default
+
+        Swal.fire({
+            icon: 'info',
+            title: 'Fitur Segera Hadir!',
+            text: 'Fitur ini sedang dalam tahap pengembangan. Nantikan update dari kami!',
+            confirmButtonText: 'Mengerti',
+            confirmButtonColor: '#FF6600' // Warna oranye brand kita
+        });
+    });
 });
+

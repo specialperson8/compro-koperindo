@@ -11,11 +11,21 @@
                     @forelse ($careers as $index => $career)
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="heading-{{ $career->id }}">
-                                <button class="accordion-button @if(!$loop->first) collapsed @endif" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $career->id }}" aria-expanded="{{ $loop->first ? 'true' : 'false' }}" aria-controls="collapse-{{ $career->id }}">
-                                    <span class="fw-bold me-2">{{ $career->title }}</span> - <span class="text-light ms-2">{{ $career->location }}</span>
+                                {{-- Selalu tambahkan class 'collapsed' pada button --}}
+                                <button class="accordion-button collapsed"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#collapse-{{ $career->id }}"
+                                        aria-expanded="false" {{-- Selalu set ke 'false' --}}
+                                        aria-controls="collapse-{{ $career->id }}">
+                                    <span class="career-tittle fw-bold me-2">{{ $career->title }}</span> - <span class="career-location ms-2">{{ $career->location }}</span>
                                 </button>
                             </h2>
-                            <div id="collapse-{{ $career->id }}" class="accordion-collapse collapse @if($loop->first) show @endif" aria-labelledby="heading-{{ $career->id }}" data-bs-parent="#accordionCareers">
+                            {{-- Hapus class 'show' dari div konten --}}
+                            <div id="collapse-{{ $career->id }}"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="heading-{{ $career->id }}"
+                                data-bs-parent="#accordionCareers">
                                 <div class="accordion-body">
                                     {!! $career->description !!}
                                     <hr class="my-4">

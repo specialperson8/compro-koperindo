@@ -78,6 +78,7 @@ class PageController extends Controller
 
         if ($page->template === 'about') {
             $viewName = 'pages.about.index';
+            $data['partners'] = Partner::orderBy('order', 'asc')->get();
             $data['milestones'] = Milestone::orderBy('order', 'asc')->get();
         }
 

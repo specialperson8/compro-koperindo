@@ -212,14 +212,63 @@ $headings-font-weight: 700; // Buat semua heading menjadi bold
     }
 }
 
-// Innovation Card
-.innovation-card-sig {
-    // Styling khusus jika diperlukan, misal:
-    .innovation-card-sig__image {
-        // Mungkin efek filter atau lainnya
-    }
+// ... (style lain) ...
+
+// ===================================
+// Custom Innovation Stage Styles (SIG inspired)
+// ===================================
+.innovations-stage {
+    position: relative;
+    padding: 5rem 0;
+    background-color: #f1f1f1; // Warna dasar jika gambar pattern tidak ada
+    background-image: url('../../public/storage/coba1.jpg');;
+    overflow: hidden; // Sangat penting!
 }
 
+.innovations-stage__shape {
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-image: url('../../public/storage/coba.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    z-index: 1; // Lapisan bawah
+}
+
+.innovations-stage__collage-img-1 {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    width: 250px;
+    opacity: 0.8;
+    z-index: 3; // Di atas segalanya
+    border-radius: 8px;
+}
+
+.innovations-stage__collage-img-2 {
+    position: absolute;
+    bottom: 10%;
+    right: 8%;
+    width: 300px;
+    opacity: 0.8;
+    z-index: 3;
+    border-radius: 8px;
+}
+
+.innovations-section {
+    position: relative;
+    z-index: 2; // Slider berada di tengah
+    background: none !important; // Hapus background aslinya
+}
+
+.innovation-card-sig {
+    background-color: #ffffff;
+    border-radius: .5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
 
 .page-hero {
     position: relative;
@@ -525,19 +574,36 @@ $headings-font-weight: 700; // Buat semua heading menjadi bold
 }
 
 .accordion-button {
-    // Saat tidak aktif (tertutup)
-    &:not(.collapsed) {
-        // Saat aktif (terbuka)
-        background-color: #FF6600; // Background oranye brand kita
-        color: #ffffff; // Teks menjadi putih
+    // --- TAMBAHKAN STYLE DEFAULT DI SINI ---
+    // Secara default, teks lokasi berwarna abu-abu
+    .career-location {
+        color: #6c757d; // Warna abu-abu dari .text-muted
+        transition: color 0.3s ease; // Tambahkan transisi warna yang mulus
+    }
 
-        // Mengubah warna ikon panah (chevron) menjadi putih
+    .career-tittle {
+
+         transition: color 0.3s ease;
+    }
+    // ------------------------------------
+
+    // Saat accordion TERBUKA
+    &:not(.collapsed) {
+        background-color: #FF6600;
+        color: #ffffff;
+
+        // --- TAMBAHKAN STYLE KHUSUS DI SINI ---
+        // Saat terbuka, paksa teks lokasi menjadi putih
+        .career-location {
+            color: #ffffff;
+        }
+        // ------------------------------------
+
         &::after {
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
         }
     }
 
-    // Menghilangkan garis biru saat di-klik
     &:focus {
         box-shadow: none;
         border-color: rgba(0,0,0,.125);
@@ -590,5 +656,52 @@ $headings-font-weight: 700; // Buat semua heading menjadi bold
     &.dropdown-toggle::after {
         // Kita bisa atur lebarnya agar tidak melewati ikon panah
         width: calc(100% - 20px);
+    }
+}
+
+.product-zigzag-item {
+    &:not(:last-child) {
+        padding-bottom: 3rem;
+        border-bottom: 1px solid #dee2e6;
+        margin-bottom: 3rem !important;
+    }
+
+    // --- TAMBAHKAN BLOK INI ---
+    .product-image-wrapper {
+        display: flex;
+        justify-content: center; // Pusatkan gambar secara horizontal
+        align-items: center;
+    }
+
+    img {
+        max-width: 60%; // Batasi lebar gambar menjadi 80% dari kolomnya
+        height: auto;
+        display: block;
+        margin: 0 auto; // Cara lain untuk memusatkan
+    }
+    // ----------------------------
+}
+
+@media (max-width: 767.98px) {
+    // Kecilkan font display (untuk judul besar)
+    .display-4 {
+        font-size: 2.5rem; // dari 3.5rem
+    }
+    .display-5 {
+        font-size: 2rem; // dari 3rem
+    }
+
+    // Kecilkan font heading biasa
+    .h1, h1 {
+        font-size: 2.25rem;
+    }
+    .h2, h2 {
+        font-size: 1.75rem;
+    }
+
+    // Kecilkan padding section agar tidak terlalu banyak spasi
+    .py-5 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
     }
 }

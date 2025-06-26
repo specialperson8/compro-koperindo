@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Cache;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 
-// Route::get('/tentang-kami', [AboutController::class, 'index'])->name('about.index');
+Route::get('/tentang-kami', [AboutController::class, 'index'])->name('about.index');
 
 // Route::get('/sejarah', [HistoryController::class, 'index'])->name('history.index');
 
