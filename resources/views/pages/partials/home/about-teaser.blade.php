@@ -14,25 +14,24 @@
     <div class="container">
         <div class="row align-items-center">
             {{-- Kolom Kiri: Teks --}}
-            <div class="col-lg-6 mb-4 mb-lg-0">
+            {{-- Di mobile akan berada di posisi kedua, di desktop (lg) kembali ke posisi pertama --}}
+            <div class="col-lg-6 mb-4 mb-lg-0 order-2 order-lg-1">
                 <h2 class="display-5 fw-bold mb-3">{{ $aboutTitle }}</h2>
                 <p class="lead text-muted">
-                    {!! nl2br(e($aboutDesc)) !!} {{-- nl2br untuk menjaga baris baru dari textarea --}}
+                    {!! nl2br(e($aboutDesc)) !!}
                 </p>
                 <a href="{{ $aboutBtnLink }}" class="btn btn-outline-dark btn-lg mt-3">{{ $aboutBtnText }}</a>
             </div>
 
-            {{-- Kolom Kanan: Gambar dengan Tombol Play --}}
-            <div class="col-lg-6">
+            {{-- Kolom Kanan: Gambar --}}
+            {{-- Di mobile akan berada di posisi pertama, di desktop (lg) kembali ke posisi kedua --}}
+            <div class="col-lg-6 order-1 order-lg-2">
                 <div class="position-relative">
                     <img src="{{ $aboutImage }}" class="img-fluid rounded shadow-lg" alt="{{ $aboutTitle }}">
 
-                    {{-- Tombol Play hanya muncul jika link video ada --}}
                     @if($aboutVideoLink !== '#')
                         <a href="{{ $aboutVideoLink }}" data-fancybox class="play-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
-                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
-                            </svg>
+                            {{-- SVG Ikon Play --}}
                         </a>
                     @endif
                 </div>
