@@ -37,5 +37,23 @@ $(document).ready(function() {
             confirmButtonColor: '#FF6600' // Warna oranye brand kita
         });
     });
+
+     var backToTopButton = $('#back-to-top');
+
+    // Tampilkan/sembunyikan tombol saat scroll
+    $(window).on('scroll', function() {
+        if ($(this).scrollTop() > 300) { // Jika scroll lebih dari 300px
+            backToTopButton.fadeIn();
+        } else {
+            backToTopButton.fadeOut();
+        }
+    });
+
+    // Animasikan scroll ke atas saat tombol diklik
+    backToTopButton.on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop : 0}, 800); // Durasi 800ms
+        return false;
+    });
 });
 

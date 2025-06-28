@@ -9,7 +9,6 @@ use App\Models\Setting;
 use App\Models\Post;
 use App\Models\PostCategory;
 use App\Models\ProductCategory;
-use App\Models\Milestone;
 use App\Models\Product;
 use App\Models\Partner;
 use Illuminate\Http\Request;
@@ -79,12 +78,10 @@ class PageController extends Controller
         if ($page->template === 'about') {
             $viewName = 'pages.about.index';
             $data['partners'] = Partner::orderBy('order', 'asc')->get();
-            $data['milestones'] = Milestone::orderBy('order', 'asc')->get();
         }
 
         elseif ($page->template === 'history') {
             $viewName = 'pages.history.index';
-            $data['milestones'] = Milestone::orderBy('year', 'asc')->get();
         }
 
         elseif ($page->template === 'visi-misi') {

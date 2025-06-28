@@ -705,3 +705,32 @@ $headings-font-weight: 700; // Buat semua heading menjadi bold
         padding-bottom: 3rem !important;
     }
 }
+
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    background-color: #F0F0F0;
+    backdrop-filter: blur(4px);
+    border: #424649 2px solid;
+    border-radius: 50%;
+    padding: 12px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: none; /* disembunyikan, tampil saat scroll */
+}
+
+#back-to-top:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background-color: #FF6600;
+}
+
+#back-to-top svg {
+    width: 24px;
+    height: 24px;
+    color: rgb(0, 0, 0);
+}

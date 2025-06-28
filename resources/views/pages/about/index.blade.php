@@ -29,24 +29,7 @@
     </section>
 
      {{-- Section Milestone Slider --}}
-    <!-- @if($milestones->isNotEmpty())
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="fw-bold text-center mb-5">Perjalanan Kami</h2>
-            <div class="milestone-slider">
-                @foreach ($milestones as $milestone)
-                    <div class="px-3">
-                        <div class="milestone-card text-center">
-                            <h3 class="milestone-card__year">{{ $milestone->year }}</h3>
-                            <h4 class="milestone-card__title">{{ $milestone->title }}</h4>
-                            <p class="milestone-card__description">{{ $milestone->description }}</p>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-    @endif -->
+
 
 
     @push('scripts')
