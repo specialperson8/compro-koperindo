@@ -6,7 +6,7 @@
     "isEntry": true
   },
   "resources/scss/app.scss": {
-    "file": "assets/app-BdMX5Zjc.css",
+    "file": "assets/app-CqmGhSTQ.css",
     "src": "resources/scss/app.scss",
     "isEntry": true
   },
@@ -14,8 +14,12 @@
     "file": "assets/coba-CdM6mzmd.jpg",
     "src": "storage/app/public/coba.jpg"
   },
-  "storage/app/public/coba1.jpg": {
-    "file": "assets/coba1-CS6Gt_hU.jpg",
-    "src": "storage/app/public/coba1.jpg"
+  "storage/app/public/inovasi.png": {
+    "file": "assets/inovasi-voHWZ8ZS.png",
+    "src": "storage/app/public/inovasi.png"
+  },
+  "storage/app/public/motto.png": {
+    "file": "assets/motto-B4YP2lhb.png",
+    "src": "storage/app/public/motto.png"
   }
 }
