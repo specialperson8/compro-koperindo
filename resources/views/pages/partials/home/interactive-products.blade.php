@@ -1,4 +1,4 @@
-<section id="produk" class="products-section py-5">
+<section id="produk" class="products-section section-padding">
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="display-5 fw-bold">Produk & Solusi</h2>

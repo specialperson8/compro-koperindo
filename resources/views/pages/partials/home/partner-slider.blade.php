@@ -1,5 +1,5 @@
 @if($partners->isNotEmpty())
-<section class="partner-section py-5">
+<section class="partner-section section-padding border-bottom">
     <div class="container">
         <h2 class="fw-bold text-center mb-5">Partner Kami</h2>
         <div class="partner-slider">

@@ -1,0 +1,21 @@
+{
+  "resources/js/app.js": {
+    "file": "assets/app-x1SyLxBu.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/scss/app.scss": {
+    "file": "assets/app-BdMX5Zjc.css",
+    "src": "resources/scss/app.scss",
+    "isEntry": true
+  },
+  "storage/app/public/coba.jpg": {
+    "file": "assets/coba-CdM6mzmd.jpg",
+    "src": "storage/app/public/coba.jpg"
+  },
+  "storage/app/public/coba1.jpg": {
+    "file": "assets/coba1-CS6Gt_hU.jpg",
+    "src": "storage/app/public/coba1.jpg"
+  }
+}

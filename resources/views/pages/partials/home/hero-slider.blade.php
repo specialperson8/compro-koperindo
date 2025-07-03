@@ -1,29 +1,29 @@
 <div class="hero-slider">
     @forelse ($sliders as $slide)
-        {{-- Kita simpan teks asli di dalam data-attributes untuk diambil oleh JavaScript --}}
         <div class="hero-slide"
              style="background-image: url('{{ asset('storage/' . $slide->image_path) }}');"
              data-title="{{ $slide->title }}"
              data-subtitle="{{ $slide->subtitle }}">
 
             <div class="hero-overlay"></div>
-            <div class="container hero-content">
-                {{-- Elemen ini akan menjadi "kanvas" untuk animasi mengetik --}}
-                <h1 class="display-4 fw-bold">
-                    <span class="typed-title"></span>
-                </h1>
-                <p class="lead">
-                    <span class="typed-subtitle"></span>
-                </p>
-
-                {{-- Tombol disembunyikan dulu, akan muncul setelah animasi selesai --}}
-                <div class="hero-button-container" style="opacity: 0; transition: opacity 0.5s ease 0.5s;">
-                    @if ($slide->button_text && $slide->button_link)
-                        <a href="{{ $slide->button_link }}" class="btn btn-warning btn-lg">{{ $slide->button_text }}</a>
-                    @endif
+                <div class="container hero-content">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <h1 class="display-4 fw-bold">
+                                <span class="typed-title"></span>
+                            </h1>
+                            <p class="lead my-4">
+                                <span class="typed-subtitle"></span>
+                            </p>
+                            <div class="hero-button-container" style="opacity: 0; transition: opacity 0.5s ease 0.5s;">
+                                @if ($slide->button_text && $slide->button_link)
+                                    <a href="{{ $slide->button_link }}" class="btn btn-warning btn-lg">{{ $slide->button_text }}</a>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
     @empty
         {{-- Tampilan fallback jika tidak ada slider di database --}}
         <div class="hero-slide" style="background-color: #333;">
@@ -86,7 +86,7 @@
                 // Buat instance Typed.js untuk judul
                 var typedTitle = new Typed(titleElement[0], {
                     strings: [titleText],
-                    typeSpeed: 30,
+                    typeSpeed: 10,
                     showCursor: false,
                     onComplete: function() {
                         // Setelah judul selesai, mulai animasi sub-judul

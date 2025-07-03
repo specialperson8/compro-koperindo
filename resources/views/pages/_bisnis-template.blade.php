@@ -7,7 +7,7 @@
         </div>
     </section>
 
-    <section class="py-5">
+    <section class="section-padding">
         <div class="container">
              {{-- Tampilkan deskripsi pembuka --}}
             <div class="row mb-5">

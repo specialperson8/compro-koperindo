@@ -1,4 +1,4 @@
-<section class="product-categories-section py-5" style="background-image: url('{{ asset('storage/coba1.jpg') }}');">
+<section class="product-categories-section section-padding" style="">
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="display-5 fw-bold">Produk & Solusi</h2>

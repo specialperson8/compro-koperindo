@@ -1,8 +1,8 @@
-<section class="news-teaser-section bg-light py-5">
+<section class="news-teaser-section bg-light section-padding">
     <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="h3 fw-bold">Apa Kabar Koperindo?</h2>
-            <a href="{{ route('posts.index') }}" class="btn btn-sm btn-outline-danger rounded-pill">Semua Berita →</a>
+            <a href="{{ route('posts.index') }}" class="btn btn-outline-danger rounded-pill">Selengkapnya</a>
         </div>
 
         <div class="row">

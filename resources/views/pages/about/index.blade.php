@@ -8,7 +8,7 @@
     </section>
 
     {{-- Section Deskripsi Singkat --}}
-    <section class="py-5">
+    <section class="section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-justify-start">
