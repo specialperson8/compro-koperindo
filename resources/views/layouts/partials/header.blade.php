@@ -26,7 +26,7 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="{{ route('page.show', 'tentang-kami') }}">Tentang Kami</a></li>
                         <li><a class="dropdown-item" href="{{ route('page.show', 'visi-misi') }}">Visi & Misi</a></li>
-                        <li><a class="dropdown-item" href="{{ route('page.show', 'lingkup-bisnis') }}">Bisnis</a></li>
+                        <li><a class="dropdown-item" href="{{ route('page.show', 'bisnis') }}">Bisnis</a></li>
                         <hr class="dropdown-divider">
                         <li><a class="dropdown-item" href="{{ route('posts.by_category', 'inovasi') }}">Inovasi</a></li>
                     </ul>

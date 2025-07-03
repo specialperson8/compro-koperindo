@@ -1,0 +1,25 @@
+{
+  "resources/js/app.js": {
+    "file": "assets/app-x1SyLxBu.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/scss/app.scss": {
+    "file": "assets/app-CqmGhSTQ.css",
+    "src": "resources/scss/app.scss",
+    "isEntry": true
+  },
+  "storage/app/public/coba.jpg": {
+    "file": "assets/coba-CdM6mzmd.jpg",
+    "src": "storage/app/public/coba.jpg"
+  },
+  "storage/app/public/inovasi.png": {
+    "file": "assets/inovasi-voHWZ8ZS.png",
+    "src": "storage/app/public/inovasi.png"
+  },
+  "storage/app/public/motto.png": {
+    "file": "assets/motto-B4YP2lhb.png",
+    "src": "storage/app/public/motto.png"
+  }
+}

@@ -7,7 +7,7 @@
         </div>
     </section>
 
-    <section class="py-5">
+    <section class="section-padding">
         <div class="container">
             {{-- Kita akan gunakan konten dari Rich Editor di sini --}}
             {{-- User bisa menggunakan Heading 2 untuk memisahkan Visi dan Misi --}}

@@ -8,32 +8,38 @@
     $aboutVideoLink = $settings['about_teaser_video_link'] ?? '#';
 @endphp
 
-
-
-<section class="about-teaser-section py-5">
+<section class="about-teaser-section section-padding">
     <div class="container">
         <div class="row align-items-center">
             {{-- Kolom Kiri: Teks --}}
             {{-- Di mobile akan berada di posisi kedua, di desktop (lg) kembali ke posisi pertama --}}
-            <div class="col-lg-6 mb-4 mb-lg-0 order-2 order-lg-1">
-                <h2 class="display-5 fw-bold mb-3">{{ $aboutTitle }}</h2>
-                <p class="lead text-muted">
-                    {!! nl2br(e($aboutDesc)) !!}
-                </p>
-                <a href="{{ $aboutBtnLink }}" class="btn btn-outline-dark btn-lg mt-3">{{ $aboutBtnText }}</a>
+            <div class="col-lg-6 mb-4 mb-lg-0 order-2 order-lg-1 mt-4 mt-lg-0">
+                <div class="content-wrapper">
+                    <h2 class="display-5 fw-bold mb-3 hover-title">{{ $aboutTitle }}</h2>
+                    <p class="lead text-muted hover-description">
+                        {!! nl2br(e($aboutDesc)) !!}
+                    </p>
+                    <a href="{{ $aboutBtnLink }}" class="btn btn-outline-dark btn-lg mt-3 hover-btn">
+                        {{ $aboutBtnText }}
+                        <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
             </div>
 
             {{-- Kolom Kanan: Gambar --}}
             {{-- Di mobile akan berada di posisi pertama, di desktop (lg) kembali ke posisi kedua --}}
             <div class="col-lg-6 order-1 order-lg-2">
-                <div class="position-relative">
-                    <img src="{{ $aboutImage }}" class="img-fluid rounded shadow-lg" alt="{{ $aboutTitle }}">
+                <div class="position-relative image-wrapper">
+                    <img src="{{ $aboutImage }}" class="img-fluid rounded shadow-lg hover-image" alt="{{ $aboutTitle }}">
 
                     @if($aboutVideoLink !== '#')
                         <a href="{{ $aboutVideoLink }}" data-fancybox class="play-button">
-                            {{-- SVG Ikon Play --}}
+                            <i class="fas fa-play"></i>
                         </a>
                     @endif
+
+                    {{-- Overlay decorative element --}}
+                    <div class="decorative-overlay"></div>
                 </div>
             </div>
         </div>

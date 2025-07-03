@@ -7,75 +7,82 @@
     }
 @endphp
 
-{{-- Hanya tampilkan section jika ada data inovasi --}}
 @if($innovations->isNotEmpty())
 
-{{-- Kita bungkus semuanya dengan sebuah "panggung" utama --}}
-<div class="innovations-stage position-relative">
-
-    {{-- Elemen-elemen Grafis yang diposisikan absolut --}}
-    {{-- 1. Bentuk Geometris Oranye/Merah --}}
-    <div class="innovations-stage__shape"></div>
-
-    {{-- 2. Gambar-gambar kolase kecil (contoh) --}}
-    {{-- Ganti src dengan gambar-gambar relevan dari project lo --}}
-    <!-- <img src="{{ asset('storage/collage.jpg') }}" class="innovations-stage__collage-img-1 d-none d-lg-block" alt="Collage Image 1">
-    <img src="{{ asset('storage/collage.jpg') }}" class="innovations-stage__collage-img-2 d-none d-lg-block" alt="Collage Image 2"> -->
-
-    {{-- Section Slider Asli kita, sekarang diposisikan di atas background --}}
+    {{-- Section Slider dengan responsive background dan ornamen --}}
     <section class="innovations-section position-relative">
-        <div class="container">
-            <div class="text-center mb-5 text-white">
-                <h2 class="display-5 fw-bold text-dark">On Innovations & Solutions</h2>
-                <p class="lead text-dark">Pendekatan kami terhadap inovasi yang berpusat pada pelanggan.</p>
-            </div>
+        <div class="innovations-stage position-relative">
 
-            <div class="innovations-slider">
-                @foreach ($innovations as $innovation)
-                    <div>
-                        {{-- Kartu slider dengan background putih --}}
-                        <div class="innovation-card-sig p-3 p-md-4 mx-lg-5">
-                            <div class="row g-0 align-items-center">
-                                <div class="col-lg-7 mb-3 mb-lg-0">
-                                    @if($innovation->thumbnail_path)
-                                        <img src="{{ asset('storage/' . $innovation->thumbnail_path) }}" class="img-fluid rounded" alt="{{ $innovation->title }}">
-                                    @endif
-                                </div>
-                                <div class="col-lg-5">
-                                    <div class="p-lg-4">
-                                        <h3 class="fw-bold h2">{{ $innovation->title }}</h3>
-                                        <p class="my-3 text-muted">{{ $innovation->excerpt }}</p>
-                                        <a href="{{ route('posts.show', $innovation) }}" class="btn btn-dark rounded-pill px-4">Baca Inovasi</a>
+            {{-- Pattern images dengan responsive positioning --}}
+            <img src="{{ asset('storage/grup.png') }}" class="innovations-stage__collage-img-1">
+            <img src="{{ asset('storage/pattern2.png') }}" class="innovations-stage__collage-img-2">
+
+            <div class="container">
+                <div class="text-center mb-4 mb-md-5">
+                    <h2 class="display-6 display-md-5 fw-bold text-dark">On Innovations & Solutions</h2>
+                    <p class="lead text-dark px-3 px-md-0">Pendekatan kami terhadap inovasi yang berpusat pada pelanggan.</p>
+                </div>
+
+                <div class="innovations-slider">
+                    @foreach ($innovations as $innovation)
+                        <div>
+                            {{-- Kartu slider dengan background putih --}}
+                            <div class="innovation-card-sig p-3 p-md-4 mx-2 mx-md-3 mx-lg-5">
+                                <div class="row g-0 align-items-center">
+                                    <div class="col-12 col-lg-7 mb-3 mb-lg-0">
+                                        @if($innovation->thumbnail_path)
+                                            <img src="{{ asset('storage/' . $innovation->thumbnail_path) }}"
+                                                 class="img-fluid rounded w-100"
+                                                 alt="{{ $innovation->title }}"
+                                                 style="height: 80%; width: 80%; object-fit: cover;">
+                                        @endif
+                                    </div>
+                                    <div class="col-12 col-lg-5">
+                                        <div class="p-2 p-md-3 p-lg-4">
+                                            <h3 class="fw-bold h3 h2-md h2-lg mb-2 mb-md-3">{{ $innovation->title }}</h3>
+                                            <p class="my-2 my-md-3 text-muted small-text">{{ $innovation->excerpt }}</p>
+                                            <a href="{{ route('posts.show', $innovation) }}"
+                                               class="btn btn-dark rounded-pill px-3 px-md-4 btn-sm btn-md-normal">
+                                               Baca Inovasi
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
         </div>
     </section>
 
-</div>
 @endif
 
 @push('scripts')
 <script>
     $(document).ready(function(){
-        // Konfigurasi Slick Carousel tetap sama (fade effect)
+        // Konfigurasi Slick Carousel dengan responsive settings
         if ($('.innovations-slider').length) {
             $('.innovations-slider').slick({
-                    dots: true,         // Tampilkan titik navigasi
-    arrows: true,         // Tampilkan panah navigasi kiri-kanan
-    infinite: true,
-    speed: 500,         // Kecepatan transisi
-    fade: true,         // <-- Kunci utama: gunakan efek FADE, bukan SLIDE
-    cssEase: 'linear',
-    autoplay: true,
-    autoplaySpeed: 3000, // Ganti slide setiap 5 detik
-    slidesToShow: 1,      // Hanya tampilkan 1 slide dalam satu waktu
-    slidesToScroll: 1
-
+                dots: true,
+                arrows: false,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear',
+                autoplay: true,
+                autoplaySpeed: 4000,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            autoplaySpeed: 5000, // Lebih lambat di mobile
+                            speed: 300
+                        }
+                    }
+                ]
             });
         }
     });
